@@ -29,9 +29,9 @@ function local_coursesearch_extends_navigation($navigation) {
     global $CFG, $USER, $PAGE;
  
 	// Add the parent if necessary
-	$nodeCourses = $navigation->find('courses');
+	$nodeCourses = $navigation->find('courses', navigation_node::TYPE_UNKNOWN);
 	if (!$nodeCourses) {
-		$nodeHome = $navigation->find('myhome');
+		$nodeHome = $navigation->find('myhome', navigation_node::TYPE_UNKNOWN);
 		if (!$nodeHome) {
 			return;
 		}

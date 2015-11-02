@@ -37,5 +37,5 @@ $plugin->component = 'local_coursesearch'; // Full name of the plugin (used for 
 $plugin->maturity = MATURITY_STABLE;//Optional - how stable the plugin is:
 //MATURITY_ALPHA, MATURITY_BETA, MATURITY_RC, MATURITY_STABLE (Moodle 2.0 and above)
 
-$plugin->release = 'v1.0.0'; //Optional - Human-readable version name
+$plugin->release = 'v1.0.1'; //Optional - Human-readable version name
 ?>
