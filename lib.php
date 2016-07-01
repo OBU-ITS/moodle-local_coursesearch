@@ -25,7 +25,7 @@
  */
 
 
-function local_coursesearch_extends_navigation($navigation) {
+function local_coursesearch_extend_navigation($navigation) {
     global $CFG, $USER, $PAGE;
  
 	// Add the parent if necessary
