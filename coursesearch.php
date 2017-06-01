@@ -91,7 +91,6 @@ if ($CFG->forcelogin) {
 }
 
 
-// make_categories_list($displaylist, $parentlist);
 $displaylist =  coursecat::make_categories_list();
 
 $strsearch = new lang_string("search");

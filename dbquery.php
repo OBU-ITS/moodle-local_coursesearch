@@ -125,11 +125,6 @@ function do_advanced_course_search($searchtermsinclude, $searchtermsexclude, $se
     $limitfrom = $page * $recordsperpage;
     $limitto   = $limitfrom + $recordsperpage;
 
-    // list($ccselect, $ccjoin) = context_instance_preload_sql('c.id', CONTEXT_COURSE, 'ctx');
-    // list($ccselect, $ccjoin) = context_helper::get_preload_record_columns_sql('c.id', CONTEXT_COURSE, 'ctx'); 
-    // $ccselect = context_helper::get_preload_record_columns_sql('c.id', CONTEXT_COURSE, 'ctx'); 
-    // $ccjoin = "shit";
-    
     $ccselect = ', ' . context_helper::get_preload_record_columns_sql('ctx');
     $ccjoin = "LEFT JOIN {context} ctx ON (ctx.instanceid = c.id AND ctx.contextlevel = :contextlevel)";
     $params['contextlevel'] = CONTEXT_COURSE;    
@@ -155,7 +150,6 @@ function do_advanced_course_search($searchtermsinclude, $searchtermsexclude, $se
     
     $rs = $DB->get_recordset_sql($sql, $params);
     foreach($rs as $course) {
-        // context_instance_preload($course);
         context_helper::preload_from_record($course);
         $coursecontext = context_course::instance($course->id);
         if ($course->visible || has_capability('moodle/course:viewhiddencourses', $coursecontext)) {
