@@ -21,14 +21,13 @@
  *
  * @package    coursesearch
  * @category   local
- * @copyright  2015, Oxford Brookes University {@link http://www.brookes.ac.uk/}
+ * @copyright  2021, Oxford Brookes University {@link http://www.brookes.ac.uk/}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 require_once("../../config.php");
 require_once("dbquery.php");
 require_once($CFG->dirroot.'/course/lib.php');
-require_once($CFG->libdir . '/coursecatlib.php');
 
 $searchinclude    = optional_param('searchinclude', '', PARAM_RAW);  // search words to include
 $searchexclude    = optional_param('searchexclude', '', PARAM_RAW);  // search words to exclude
@@ -91,7 +90,7 @@ if ($CFG->forcelogin) {
 }
 
 
-$displaylist =  coursecat::make_categories_list();
+$displaylist =  \core_course_category::make_categories_list();
 
 $strsearch = new lang_string("search");
 $strsearchresults = new lang_string("searchresults");
